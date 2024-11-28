@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'components/button.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const ButtonApp());
 }
 
 class MyApp extends StatelessWidget {

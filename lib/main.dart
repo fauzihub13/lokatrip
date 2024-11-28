@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'components/input.dart';
 import 'components/button.dart';
 
+
 void main() {
-  runApp(const ButtonApp());
+  runApp(const InputApp());
 }
 
 class MyApp extends StatelessWidget {

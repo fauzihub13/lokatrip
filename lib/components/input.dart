@@ -27,6 +27,7 @@ class _InputAppScreenState extends State<InputAppScreen> {
   TextEditingController _controller = TextEditingController();
   bool _lightOn = false;
   String? selectedLanguage;
+  bool _agree = false;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +125,7 @@ class _InputAppScreenState extends State<InputAppScreen> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(_lightOn ? 'Light On' : 'Light Off'),
-                        duration: Duration(seconds: 1),
+                        duration: const Duration(seconds: 1),
                       ),
                     );
                   },
@@ -143,7 +144,7 @@ class _InputAppScreenState extends State<InputAppScreen> {
                           });
                         },
                       ),
-                      title: Text('Dart'),
+                      title: const Text('Dart'),
                     ),
                     ListTile(
                       leading: Radio<String>(
@@ -156,7 +157,7 @@ class _InputAppScreenState extends State<InputAppScreen> {
                           });
                         },
                       ),
-                      title: Text('Kotlin'),
+                      title: const Text('Kotlin'),
                     ),
                     ListTile(
                       leading: Radio<String>(
@@ -169,9 +170,19 @@ class _InputAppScreenState extends State<InputAppScreen> {
                           });
                         },
                       ),
-                      title: Text('Swift'),
+                      title: const Text('Swift'),
                     ),
                   ],
+                ),
+                ListTile(
+                  leading: Checkbox(
+                      value: _agree,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _agree = value!;
+                        });
+                      }),
+                  title: const Text('Agree / Disagree'),
                 )
               ],
             ),

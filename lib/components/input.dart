@@ -25,6 +25,8 @@ class _InputAppScreenState extends State<InputAppScreen> {
   String _onSubmittedName = '';
   String _textControllerName = '';
   TextEditingController _controller = TextEditingController();
+  bool _lightOn = false;
+  String? selectedLanguage;
 
   @override
   Widget build(BuildContext context) {
@@ -111,9 +113,78 @@ class _InputAppScreenState extends State<InputAppScreen> {
                         });
                   },
                 ),
+                const SizedBox(height: 18.0),
+                Switch(
+                  value: _lightOn,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _lightOn = value;
+                    });
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(_lightOn ? 'Light On' : 'Light Off'),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+                  },
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Radio<String>(
+                        value: 'Dart',
+                        groupValue: selectedLanguage,
+                        onChanged: (String? value) {
+                          setState(() {
+                            selectedLanguage = value;
+                            showSnackBar();
+                          });
+                        },
+                      ),
+                      title: Text('Dart'),
+                    ),
+                    ListTile(
+                      leading: Radio<String>(
+                        value: 'Kotlin',
+                        groupValue: selectedLanguage,
+                        onChanged: (String? value) {
+                          setState(() {
+                            selectedLanguage = value;
+                            showSnackBar();
+                          });
+                        },
+                      ),
+                      title: Text('Kotlin'),
+                    ),
+                    ListTile(
+                      leading: Radio<String>(
+                        value: 'Swift',
+                        groupValue: selectedLanguage,
+                        onChanged: (String? value) {
+                          setState(() {
+                            selectedLanguage = value;
+                            showSnackBar();
+                          });
+                        },
+                      ),
+                      title: Text('Swift'),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
         ));
+  }
+
+  void showSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('$selectedLanguage selected'),
+        duration: Duration(seconds: 1),
+      ),
+    );
   }
 }

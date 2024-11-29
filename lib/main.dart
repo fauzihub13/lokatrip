@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'presentation/detail_screen.dart';
-import 'presentation/list_view.dart';
+import 'presentation/expanded_flexible.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: ScrollingScreen(),
+      home: ExpandedFlexiblePage(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lokatrip/presentation/screen/responsive_screen.dart';
+import 'package:flutter_lokatrip/presentation/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const ResponsiveScreen(),
+      home: const MainScreen(),
     );
   }
 }
